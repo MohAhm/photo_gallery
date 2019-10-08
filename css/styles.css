@@ -24,6 +24,7 @@ ul {
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 
@@ -32,16 +33,15 @@ img {
 ==================================== */
 
 .container {
-    width: 90%;
     margin: 0 auto;
     padding: 0 5%;
 }
 
 input {
     display: block;
-    margin: 30px auto;
+    margin: 40px auto 0;
     padding: 15px;
-    width: 100%;
+    width: 50%;
     height: auto;
     outline: 0;
     border-radius: 5px;
@@ -59,7 +59,27 @@ input {
 }
 
 #gallery li {
-    margin-bottom: 45px;
+    margin: 40px auto 0;
+}
+
+
+/* ================================= 
+  Lightbox
+==================================== */
+
+.lb-outerContainer,
+.lightbox .lb-image {
+    border: none;
+    border-radius: 0;
+}
+
+.lb-data .lb-close {
+    display: none;
+}
+
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+    opacity: 1;
 }
 
 
@@ -72,12 +92,30 @@ input {
     #gallery {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     #gallery li {
-        flex-basis: 50%;
         padding: 0 2.5%;
+    }
+
+
+    /* Caption ... */
+    .lb-data {
+        margin: 40px 60px 0;
+        /* Center multiple lines text */
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .lb-data .lb-details {
+        width: 100%;
+    }
+
+    .lb-data .lb-caption {
+        font-size: 1em;
+        line-height: 1.5;
+        letter-spacing: 2px;
     }
 
 }
@@ -88,12 +126,22 @@ input {
         max-width: 1200px;
     }
 
-    input {
+}
+
+@media (min-width: 1024px) {
+
+    .lb-nav a.lb-prev,
+    .lb-nav a.lb-next {
+        position: absolute;
         width: 50%;
     }
 
-    #gallery li {
-        flex-basis: 25%;
+    .lb-nav a.lb-prev {
+        left: -9%;
+    }
+
+    .lb-nav a.lb-next {
+        right: -9%;
     }
 
 }
