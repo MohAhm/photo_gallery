@@ -24,7 +24,11 @@ ul {
 
 img {
     max-width: 100%;
-    height: auto;
+    transition: transform .5s cubic-bezier(.7, -0.39, .31, 1.38);
+}
+
+img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -33,13 +37,12 @@ img {
 ==================================== */
 
 .container {
-    margin: 0 auto;
     padding: 0 5%;
 }
 
 input {
     display: block;
-    margin: 40px auto 0;
+    margin: 40px auto;
     padding: 15px;
     width: 50%;
     height: auto;
@@ -53,13 +56,11 @@ input {
 }
 
 #gallery {
-    display: flex;
-    flex-direction: column;
     text-align: center;
 }
 
-#gallery li {
-    margin: 40px auto 0;
+.photo {
+    padding: 0 1em 2em;
 }
 
 
@@ -90,15 +91,14 @@ input {
 @media screen and (min-width: 480px) {
 
     #gallery {
-        flex-direction: row;
+        display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
-    #gallery li {
-        padding: 0 2.5%;
+    .photo {
+        flex: 1 50%;
     }
-
 
     /* Caption ... */
     .lb-data {
@@ -123,12 +123,27 @@ input {
 @media (min-width: 768px) {
 
     .container {
-        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .photo {
+        flex: 33.3333%;
     }
 
 }
 
 @media (min-width: 1024px) {
+
+    .container {
+        width: 80%;
+        max-width: 1150px;
+    }
+
+    .photo {
+        flex: 25%;
+    }
 
     .lb-nav a.lb-prev,
     .lb-nav a.lb-next {
